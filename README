@@ -1,0 +1,15 @@
+xlord xlorb概念:
+    一端在工作网络内部, 我叫xlorb,  负责接受指令,连接内部网络
+    一端在外部, 我叫xlord, 负责处理代理协议 将代理连接请求转到xinward
+jinlord的inward outward概念
+    jinlord把xlorb和xlord集成在一个端上, 我的xlord连别人xlorb, 别人的xlord连我的xlorb
+    这里把名字改了一下, xlorb叫xinward(向内), xlord叫xoutward(向外)
+finder admit概念:
+    xlord就是finder xlorb就是admit
+
+这种通道, 如果xlorb位于内网,可以用来访问内部网络;如果xinward位于海外可以用来翻墙
+xlorb和xlord之间用raknet的udp连接, 其他都会是标准tcp
+raknet使用了消息filter, 把一个udp端口复用raknet协议和标准udp协议. 标准udp部分用来联络dht
+
+
+jinlord是将两种模块集成到了一起. 还会向服务器注册登录, 期望服务器提供查找功能 (dht的jinchart难把握)
